@@ -1,0 +1,41 @@
+html
+    head 
+        title Employee CRUD 
+        link(rel="stylesheet", type="text/css" href="../public/css/bootstrap.min.css")
+    body
+        div.container-fluid.d-flex.align-items-center.text-center
+            div.container 
+                h3(class="text-primary") Employee CRUD Application
+        block content
+            h2.d-flex.flex-row.flex-sm-row.justify-content-between
+                | Employees List
+                a(class="btn btn-danger" href="./deleteAll" role="button" style="margin-left:-15em") Delete ALL Employees
+                a(class="btn btn-primary" href="./createNew" role="button") Add New Employee
+                br
+
+            if employees.length > 0
+                .table-responsive()
+                    table(class="table table-striped table-md")
+                        thead(class="table-warning")
+                            tr
+                                th(scope="col") #
+                                th(scope="col") Employee Name
+                                th(scope="col") Employee Email
+                                th(scope="col") City
+                                th(scope="col") Employee Phone
+                                th(scope="col") Actions
+                        tbody
+                        - let i = 0
+                        //- - console.log({employees})
+                        each employee in employees
+                            - i = i+1
+                            tr(class= "table-danger")
+                                th(scope="row") #{i}
+                                td(class="fw-bold") #{employee.name}    
+                                td #{employee.email}    
+                                td #{employee.city}    
+                                td #{employee.mobile}  
+                                td
+                                    div
+                                        a.btn.btn-danger.btn-sm.me-1(href=`./edit/${employee._id}`) Edit
+                                        a.btn.btn-danger.btn-sm.me-1(href=`./deleteId/${employee._id}`) Delete

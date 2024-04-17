@@ -1,0 +1,10 @@
+/* .form input {
+    display: flex;
+  } */
+  .box{
+    width: 50em     ;
+    height: 25em;
+    border: 5px solid rgb(224, 190, 51);
+    padding: 0;
+    margin-left:30em;
+    }

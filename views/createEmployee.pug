@@ -1,0 +1,34 @@
+html 
+    head 
+        title Welcome to add new fields.
+        link(rel="stylesheet", href="../public/index.css")
+        link(rel="stylesheet", href="../public/css/bootstrap.min.css")
+        body 
+            - let action = editing?'addNewEmployee':'addNewEmployee'
+            h1(style="margin-left:15em") Employee Management System
+            
+            br
+            block  content
+                div(class="box")
+                    br
+                    
+                    form(action=`/employees/${action}`, method="post" style = "margin-left:7em" enctype="application/x-www-form-urlencoded")
+                        //- input(type="hidden",value=`${employee._id}`)
+                        div(class="row mb-3")
+                            label(class="col-sm-2 col-form-label") Employee Name 
+                            div(class="col-sm-5")
+                                input(type="text" class="form-control" value=`${employee_details.name}`  name="name" id="employeeName" placeholder="Enter employee name")
+                        div(class="row mb-3")
+                            label(class="col-sm-2 col-form-label") Employee Email
+                            div(class="col-sm-5")
+                                input(type="email" class="form-control" value=`${employee_details.email}` name="email" id="employeeEmail" placeholder="Enter employee email")
+                        div(class="row mb-3")
+                            label(class="col-sm-2 col-form-label") Employee Phone 
+                            div(class="col-sm-5")
+                                input(type="tel" class="form-control" value=`${employee_details.mobile}` name="mobile" id="employeePhone" placeholder="Enter employee's ph-number")
+                        div(class="row mb-3")
+                            label(class="col-sm-2 col-form-label") City
+                            div(class="col-sm-5")
+                                input(type="text" class="form-control" value=`${employee_details.city}`   name="city" id="employeeCity" placeholder="Enter City")
+                        br
+                        input(type="submit" value="Add New Employee" class="col-sm-5 btn btn-primary" style="margin-left:70px") 
